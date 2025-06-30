@@ -1,15 +1,25 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        boolean playAgain = false;
+        String playerA = "";
+        String playerB = "";
+        String trash = "";
+        String response;
+        Scanner in = new Scanner(System.in);
+        do {
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+
+            // Force the user to type Y or N
+            do {
+                System.out.print("Play again? Y/N: ");
+                response = in.nextLine().trim();
+            } while (!response.equalsIgnoreCase("Y") && !response.equalsIgnoreCase("N"));
+            playAgain = response.equalsIgnoreCase("Y");
+        } while (playAgain);
+
+        in.close(); // Releases system resources by cleanly shutting down the Scanner
+        System.out.println("Thanks for playing!");
     }
 }
